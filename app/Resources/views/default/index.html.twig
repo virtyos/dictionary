@@ -1,0 +1,61 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div id="wrapper">
+        <div id="container" class="container">
+          <div class="row">
+            <div class="center-block col-md-4" style="float: none">
+             
+              <div class="start-test-block vcenter hcenter" ng-show="!isTestStarted">
+                <p>
+                  Предлагаем Вашему вниманию небольшой тест на знание переводов английских слов
+                </p>
+                <input ng-model="userName" type="text" placeholder="Введите Ваше имя" class="form-control" style="width: 200px; display: inline-block">
+                <br>
+                <span class="error" ng-bind="userNameError"></span>
+                <br><br>
+                <button ng-click="beginTest()" class="btn btn-primary test-begin-btn">Начать тест</button>
+              </div>
+              
+              <div class="question well hcenter vcenter" ng-show="currentWordId">
+                <div>
+                  Правильных ответов: {% verbatim %}{{answersCount}}{% endverbatim %} /
+                  Ошибок: {% verbatim %}{{errorsCount}}{% endverbatim %}
+                </div>
+                <br>
+                <h4 ng-bind="currentWord"></h4>
+                <div>Варианты перевода:</div>
+                <br>
+                {% verbatim %}
+                <ul class="translate-vars">
+                  <li ng-repeat="translate in translations"> 
+                    <input ng-model="$parent.currentTranslate" data-ng-value="true" 
+                      id="translate_{{$index}}" type="radio" name="translate" value="{{translate}}"> 
+                    <label for="translate_{{$index}}">{{translate}}</label>
+                  </li>
+                </ul>
+                {% endverbatim %}
+                <span class="error" ng-bind="questionError"></span>
+                <button ng-click="saveQuestionResult()" class="btn btn-primary">Ответить</button>
+              </div>
+              
+              <div class="question well hcenter vcenter" ng-show="isTestFinished">
+                <div>
+                  Поздравляем! Вы закончили тест!<br>
+                  Ваш результат:<br>
+                  Правильных ответов: {% verbatim %}{{answersCount}}{% endverbatim %} /
+                  Ошибок: {% verbatim %}{{errorsCount}}{% endverbatim %}
+                </div>
+              </div>
+           
+           </div>
+          </div>
+        </div>
+    </div>
+    <div class="main-loader" ng-show="isLoading">
+      {% image '@AppBundle/Resources/public/img/preloader.gif' %}
+        <img src="{{ asset_url }}" alt="loading" />
+      {% endimage %}
+    </div>
+{% endblock %}
+

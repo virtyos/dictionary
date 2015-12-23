@@ -1,0 +1,75 @@
+﻿* {
+}
+
+.test-begin-btn {
+ font-size: 30px;
+}
+
+
+.start-test-block p {
+ max-width: 300px;
+ margin: 0 auto;
+ margin-bottom: 20px;
+}
+
+.start-test-block {
+  -webkit-transition:all linear 0.5s;
+  transition:all linear 0.2s;
+}
+
+.start-test-block.ng-hide {
+  opacity:0;
+}
+
+.main-loader {
+  overflow: auto;
+  overflow-y: scroll;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1050;
+  text-align: center;
+  padding-top: 150px;
+  opacity: 0.7;
+  background: #eee;
+}
+
+.error {
+ color: red;
+}
+
+.translate-vars {
+  font-size: 18px;
+}
+
+.translate-vars  li {
+ list-style: none;
+}
+
+.question h4 {
+ text-align: center;
+ font-size: 22px;
+}
+
+label {
+ cursor: pointer;
+}
+
+.translate-vars label {
+ display: inline-block;
+ margin-left: 20px;
+ margin-right: 20px;
+ width: 120px;
+}
+
+.hcenter {
+  text-align: center; 
+}
+
+.vcenter {
+ margin-top: 100px;
+}
+
+
