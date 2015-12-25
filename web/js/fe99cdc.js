@@ -451,6 +451,7 @@ wordsTestApp.controller('WordsTestCntrl', function ($scope, $http, $timeout) {
           $scope.isLoading = false;
           if (data['success']) {
             $scope.answersCount++;
+            $scope.isTryAgain = false;
           } else if (data['error']) {
             switch (data['error']) {
               case 'wrong data':
